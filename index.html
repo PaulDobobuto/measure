@@ -1,0 +1,54 @@
+<!DOCTYPE html> <html lang="es"> <head>     
+    <meta charset="UTF-8">     
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">     
+    <title>Conversor de Distancias</title>     
+    <style>         
+    body {             
+        font-family: Arial, sans-serif;             
+        margin: 20px;             
+        background-image:url(https://www.eurokidsindia.com/blog/wp-content/uploads/2023/10/what-is-measurement.jpg);   
+        background-size: cover;      }         
+        
+        h1 {             
+            text-align: center;             
+            color: #333;         }         
+        
+        .container {             
+            max-width: 500px;             
+            margin: auto;             
+            padding: 20px;             
+            background: rgba(255, 252, 252, 0.7);             
+            border-radius: 10px;             
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);         }         
+            
+            input, select {             
+                margin: 10px 0;             
+                padding: 10px;             
+                width: calc(100% - 22px);             
+                border-radius: 5px;             
+                border: 1px solid #ccc;         }         
+                
+                button {             
+                    padding: 10px;             
+                    background-color: #4CAF50;             
+                    color: white;             
+                    border: none;             
+                    border-radius: 5px;             
+                    cursor: pointer;             
+                    width: 100%;         }         
+                    
+                button:hover {             
+                        background-color: #45a049;         }         
+                        
+                h2 {             
+                    text-align: center;             
+                    color: #4CAF50;         }     
+                    </style> 
+                    
+                
+                </head> 
+                <body>
+                    
+                    <div class="container">         
+                    <h1>Conversor de Distancias</h1>         
+                    <input type="number" id="valor" placeholder="Ingresa la distancia" required>                  <select id="unidadOrigen">             <option value="metros">Metros</option>             <option value="pies">Pies</option>             <option value="pulgadas">Pulgadas</option>             <option value="kilometros">Kilómetros</option>             <option value="yardas">Yardas</option>             <option value="millas">Millas</option>             <option value="centimetros">Centímetros</option>         </select>          <select id="unidadDestino">             <option value="metros">Metros</option>             <option value="pies">Pies</option>             <option value="pulgadas">Pulgadas</option>             <option value="kilometros">Kilómetros</option>             <option value="yardas">Yardas</option>             <option value="millas">Millas</option>             <option value="centimetros">Centímetros</option>         </select>          <button onclick="convertir()">Convertir</button>          <h2 id="resultado"></h2>     </div>      <script>         function convertir() {             const valor = document.getElementById('valor').value;             const unidadOrigen = document.getElementById('unidadOrigen').value;             const unidadDestino = document.getElementById('unidadDestino').value;              const conversiones = {                 metros: { pies: 3.28084, pulgadas: 39.3701, kilometros: 0.001, yardas: 1.09361, millas: 0.000621371, centimetros: 100 },                 pies: { metros: 0.3048, pulgadas: 12, kilometros: 0.0003048, yardas: 0.333333, millas: 0.000189394, centimetros: 30.48 },                 pulgadas: { metros: 0.0254, pies: 0.0833333, kilometros: 0.0000254, yardas: 0.0277778, millas: 0.0000157828, centimetros: 2.54 },                 kilometros: { metros: 1000, pies: 3280.84, pulgadas: 39370.1, yardas: 1093.61, millas: 0.621371, centimetros: 100000 },                 yardas: { metros: 0.9144, pies: 3, pulgadas: 36, kilometros: 0.0009144, millas: 0.000568182, centimetros: 91.44 },                 millas: { metros: 1609.34, pies: 5280, pulgadas: 63360, kilometros: 1.60934, yardas: 1760, centimetros: 160934 },                 centimetros:{ metros :0.01,pies :0.0328084,pulgadas :0.393701,kilometros :0.00001,yardas :0.0109361,millas :6.2137e-6}                               };               if (valor === "") {                  document.getElementById('resultado').innerText = "Por favor ingresa un valor.";                  return;               }               const resultado = valor * conversiones[unidadOrigen][unidadDestino];              document.getElementById('resultado').innerText = `Resultado: ${resultado.toFixed(2)} ${unidadDestino}`;          }     </script> </body> </html>
